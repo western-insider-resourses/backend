@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { bad, HttpError, intParam, slugify, uniqueSlug } from '../src/utils.js';
-import { NICHES } from '../src/niches.js';
+import { bad, HttpError, intParam, slugify, uniqueSlug } from '../src/shared/utils.js';
+import { NICHES } from '../src/shared/niches.js';
 
 describe('slugify', () => {
   it('lowercases, strips accents and joins with dashes', () => {

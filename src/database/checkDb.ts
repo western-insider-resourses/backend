@@ -1,4 +1,4 @@
-import './config.js';
+import '../config/environment.js';
 import { assertDatabaseConfigured, pool } from './db.js';
 
 assertDatabaseConfigured();

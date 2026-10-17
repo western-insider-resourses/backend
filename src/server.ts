@@ -1,6 +1,6 @@
-import './config.js';
+import './config/environment.js';
 import { createApp } from './app.js';
-import { assertDatabaseConfigured, pool } from './db.js';
+import { assertDatabaseConfigured, pool } from './database/db.js';
 
 if (!process.env.JWT_SECRET) throw new Error('JWT_SECRET is not set');
 assertDatabaseConfigured();

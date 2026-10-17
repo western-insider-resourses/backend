@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { query } from '../src/db.js';
+import { query } from '../src/database/db.js';
 import { adminToken, api, result } from './helpers.js';
 
 const q = vi.mocked(query);
@@ -36,14 +36,20 @@ describe('public API', () => {
 describe('admin categories (niches)', () => {
   it('creates a niche with a slug', async () => {
     q.mockResolvedValueOnce(result([{ id: 9, name: 'Real Estate', slug: 'real-estate', position: 6 }]) as never);
-    const res = await api().post('/api/admin/categories').set('Authorization', adminToken()).send({ name: 'Real Estate' });
+    const res = await api().post('/api/admin/categories')
+      .set('Cookie', `admin_token=${adminToken()}`)
+      .set('X-Admin-Request', '1')
+      .send({ name: 'Real Estate' });
     expect(res.status).toBe(201);
     expect(q.mock.calls[0]![1]).toEqual(['Real Estate', 'real-estate']);
   });
 
   it('refuses duplicates', async () => {
     q.mockResolvedValueOnce(result([]) as never);
-    const res = await api().post('/api/admin/categories').set('Authorization', adminToken()).send({ name: 'Business' });
+    const res = await api().post('/api/admin/categories')
+      .set('Cookie', `admin_token=${adminToken()}`)
+      .set('X-Admin-Request', '1')
+      .send({ name: 'Business' });
     expect(res.status).toBe(400);
     expect(res.body.error).toMatch(/already exists/);
   });

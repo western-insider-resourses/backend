@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readCredentials } from '../src/validation.js';
+import { readCredentials } from '../src/shared/validation.js';
 
 describe('readCredentials', () => {
   it('normalises the email', () => {
