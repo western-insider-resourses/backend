@@ -91,13 +91,13 @@ export const openApiSpec: JsonObject = {
         "200": jsonResponse("OpenAPI 3.0.3 document"),
       }),
     },
-    "/categories": {
+    "/v1/categories": {
       get: operation("List public categories", "Public", {
         "200": success,
         ...errors,
       }),
     },
-    "/posts": {
+    "/v1/posts": {
       get: operation(
         "List and search published stories",
         "Public",
@@ -133,13 +133,13 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/posts/trending": {
+    "/v1/posts/trending": {
       get: operation("List trending published stories", "Public", {
         "200": success,
         ...errors,
       }),
     },
-    "/posts/{slug}": {
+    "/v1/posts/{slug}": {
       get: operation(
         "Get a published story and related stories",
         "Public",
@@ -162,7 +162,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/posts/{slug}/like": {
+    "/v1/posts/{slug}/like": {
       get: operation(
         "Get like state and count",
         "Public",
@@ -202,7 +202,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/posts/{slug}/comments": {
+    "/v1/posts/{slug}/comments": {
       get: operation(
         "List visible comments and replies",
         "Public",
@@ -241,7 +241,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/ads": {
+    "/v1/ads": {
       get: operation(
         "List active public ads",
         "Public",
@@ -260,13 +260,13 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/social": {
+    "/v1/social": {
       get: operation("List active public social links", "Public", {
         "200": success,
         ...errors,
       }),
     },
-    "/track": {
+    "/v1/track": {
       post: operation(
         "Record a page view or click",
         "Public",
@@ -278,7 +278,7 @@ export const openApiSpec: JsonObject = {
         { requestBody: requestBody("TrackEventInput") },
       ),
     },
-    "/auth/login": {
+    "/v1/auth/login": {
       post: operation(
         "Sign in as an admin",
         "Authentication",
@@ -297,7 +297,7 @@ export const openApiSpec: JsonObject = {
         { requestBody: requestBody("Credentials") },
       ),
     },
-    "/auth/signup": {
+    "/v1/auth/signup": {
       post: operation(
         "Create an admin account",
         "Authentication",
@@ -319,7 +319,7 @@ export const openApiSpec: JsonObject = {
         { requestBody: requestBody("SignupInput") },
       ),
     },
-    "/auth/session": {
+    "/v1/auth/session": {
       get: operation(
         "Check current admin session",
         "Authentication",
@@ -332,19 +332,19 @@ export const openApiSpec: JsonObject = {
         { security: adminSecurity },
       ),
     },
-    "/auth/logout": {
+    "/v1/auth/logout": {
       post: operation("Sign out and clear the admin cookie", "Authentication", {
         "204": jsonResponse("Cookie cleared"),
       }),
     },
-    "/auth/signup-config": {
+    "/v1/auth/signup-config": {
       get: operation(
         "Check whether signup requires an invite code",
         "Authentication",
         { "200": success },
       ),
     },
-    "/admin/upload": {
+    "/v1/admin/upload": {
       post: operation(
         "Upload story images",
         "Admin",
@@ -375,7 +375,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/upload/remove": {
+    "/v1/admin/upload/remove": {
       post: operation(
         "Remove an uploaded image",
         "Admin",
@@ -386,7 +386,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/posts": {
+    "/v1/admin/posts": {
       get: operation(
         "List all stories",
         "Admin",
@@ -403,7 +403,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/posts/{id}": {
+    "/v1/admin/posts/{id}": {
       get: operation(
         "Get a story for editing",
         "Admin",
@@ -454,7 +454,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/categories": {
+    "/v1/admin/categories": {
       get: operation(
         "List categories",
         "Admin",
@@ -471,7 +471,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/categories/{id}": {
+    "/v1/admin/categories/{id}": {
       put: operation(
         "Update a category",
         "Admin",
@@ -506,7 +506,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/comments": {
+    "/v1/admin/comments": {
       get: operation(
         "List comments for moderation",
         "Admin",
@@ -514,7 +514,7 @@ export const openApiSpec: JsonObject = {
         { security: adminSecurity },
       ),
     },
-    "/admin/comments/{id}": {
+    "/v1/admin/comments/{id}": {
       patch: operation(
         "Change comment visibility",
         "Admin",
@@ -549,7 +549,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/ads": {
+    "/v1/admin/ads": {
       get: operation(
         "List ads and click counts",
         "Admin",
@@ -566,7 +566,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/ads/{id}": {
+    "/v1/admin/ads/{id}": {
       put: operation(
         "Update an ad",
         "Admin",
@@ -618,7 +618,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/social": {
+    "/v1/admin/social": {
       get: operation(
         "List admin social links",
         "Admin",
@@ -635,7 +635,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/social/{id}": {
+    "/v1/admin/social/{id}": {
       patch: operation(
         "Change whether a social link is active",
         "Admin",
@@ -670,7 +670,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/analytics": {
+    "/v1/admin/analytics": {
       get: operation(
         "Get traffic analytics",
         "Admin",
@@ -692,7 +692,7 @@ export const openApiSpec: JsonObject = {
         },
       ),
     },
-    "/admin/adsense": {
+    "/v1/admin/adsense": {
       get: operation(
         "Get AdSense earnings report",
         "Admin",
