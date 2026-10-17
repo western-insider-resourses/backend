@@ -40,12 +40,12 @@ export function createApp() {
   );
   const authLimit = process.env.NODE_ENV === "test" ? 10_000 : 20;
   app.use(
-    "/api/auth",
+    "/api/v1/auth",
     rateLimit({ windowMs: 15 * 60 * 1000, max: authLimit }),
     authRoutes,
   );
-  app.use("/api/admin", adminRoutes);
-  app.use("/api", publicRoutes);
+  app.use("/api/v1/admin", adminRoutes);
+  app.use("/api/v1", publicRoutes);
 
   app.use(
     (
