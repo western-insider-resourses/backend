@@ -1,5 +1,5 @@
-import { query } from "../../database/db.js";
-import { wrap } from "../../shared/utils.js";
+import { query } from "../../../database/db.js";
+import { wrap } from "../../../shared/utils.js";
 
 export const patchAd = wrap(async (req, res) => {
   await query("UPDATE ads SET active = $2 WHERE id = $1", [

@@ -1,5 +1,5 @@
-import { query } from "../../database/db.js";
-import { bad, wrap } from "../../shared/utils.js";
+import { query } from "../../../database/db.js";
+import { bad, wrap } from "../../../shared/utils.js";
 
 export const createSocialLink = wrap(async (req, res) => {
   const { platform, url } = req.body;

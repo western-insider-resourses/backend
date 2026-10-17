@@ -1,5 +1,5 @@
 import type { PoolClient } from "pg";
-import { bad } from "../../shared/utils.js";
+import { bad } from "../../../shared/utils.js";
 
 interface ImageInput {
   url: string;

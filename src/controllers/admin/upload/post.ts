@@ -1,5 +1,5 @@
-import { uploadBuffer } from "../../services/cloudinary.js";
-import { bad, wrap } from "../../shared/utils.js";
+import { uploadBuffer } from "../../../services/cloudinary.js";
+import { bad, wrap } from "../../../shared/utils.js";
 
 export const uploadImages = wrap(async (req, res) => {
   if (!Array.isArray(req.files) || !req.files.length)

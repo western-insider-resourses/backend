@@ -1,5 +1,5 @@
-import { destroyImages } from "../../services/cloudinary.js";
-import { wrap } from "../../shared/utils.js";
+import { destroyImages } from "../../../services/cloudinary.js";
+import { wrap } from "../../../shared/utils.js";
 
 export const removeUpload = wrap(async (req, res) => {
   await destroyImages([req.body.public_id]);

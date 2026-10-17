@@ -1,5 +1,5 @@
-import { query } from "../../database/db.js";
-import { bad, slugify, wrap } from "../../shared/utils.js";
+import { query } from "../../../database/db.js";
+import { bad, slugify, wrap } from "../../../shared/utils.js";
 
 export const createCategory = wrap(async (req, res) => {
   const name = String(req.body.name || "").trim();

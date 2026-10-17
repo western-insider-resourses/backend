@@ -1,6 +1,6 @@
-import { query } from "../../database/db.js";
-import { destroyImages } from "../../services/cloudinary.js";
-import { wrap } from "../../shared/utils.js";
+import { query } from "../../../database/db.js";
+import { destroyImages } from "../../../services/cloudinary.js";
+import { wrap } from "../../../shared/utils.js";
 
 export const deletePost = wrap(async (req, res) => {
   const ids = (

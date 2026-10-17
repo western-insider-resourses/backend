@@ -1,5 +1,5 @@
-import { query } from "../../database/db.js";
-import { wrap } from "../../shared/utils.js";
+import { query } from "../../../database/db.js";
+import { wrap } from "../../../shared/utils.js";
 
 export const getPost = wrap(async (req, res) => {
   const post = (

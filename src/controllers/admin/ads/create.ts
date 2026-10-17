@@ -1,6 +1,6 @@
-import { query } from "../../database/db.js";
-import { wrap } from "../../shared/utils.js";
-import { readAd } from "./adHelpers.js";
+import { query } from "../../../database/db.js";
+import { wrap } from "../../../shared/utils.js";
+import { readAd } from "./helpers.js";
 
 export const createAd = wrap(async (req, res) => {
   const { rows } = await query(

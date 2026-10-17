@@ -1,5 +1,5 @@
-import { query } from "../../database/db.js";
-import { intParam, wrap } from "../../shared/utils.js";
+import { query } from "../../../database/db.js";
+import { intParam, wrap } from "../../../shared/utils.js";
 
 export const getAnalytics = wrap(async (req, res) => {
   const days = Math.min(Math.max(intParam(req.query.days, 30), 1), 365);

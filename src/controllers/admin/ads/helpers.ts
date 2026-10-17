@@ -1,4 +1,4 @@
-import { bad } from "../../shared/utils.js";
+import { bad } from "../../../shared/utils.js";
 
 export function readAd(b: Record<string, unknown>): unknown[] {
   const name = String(b.name || "").trim();

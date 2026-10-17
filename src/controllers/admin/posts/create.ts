@@ -1,6 +1,6 @@
-import { pool } from "../../database/db.js";
-import { uniqueSlug, wrap } from "../../shared/utils.js";
-import { insertImages, readPost } from "./postHelpers.js";
+import { pool } from "../../../database/db.js";
+import { uniqueSlug, wrap } from "../../../shared/utils.js";
+import { insertImages, readPost } from "./helpers.js";
 
 export const createPost = wrap(async (req, res) => {
   const d = readPost(req.body);
