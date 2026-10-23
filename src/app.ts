@@ -15,8 +15,8 @@ import { openApiSpec } from "./docs/openapi.js";
 // Allowed browser origins: the public site and the separate admin site.
 export const allowedOrigins = (): string[] =>
   [
-    process.env.CLIENT_URL || "http://localhost:3000",
-    process.env.ADMIN_URL || "http://localhost:3001",
+    process.env.CLIENT_URL || "http://localhost:3000 || https://client.devvictor204.workers.dev/",
+    process.env.ADMIN_URL || "http://localhost:3001 || https://admin.devvictor204.workers.dev/",
   ]
     .flatMap((v) => v.split(","))
     .map((v) => v.trim())

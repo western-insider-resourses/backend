@@ -1,5 +1,3 @@
-// Reads earnings from the Google AdSense Management API (v2).
-// Needs a one-time OAuth consent; see README "Connect AdSense".
 
 const RANGES: Record<string, string> = {
   "7d": "LAST_7_DAYS",
